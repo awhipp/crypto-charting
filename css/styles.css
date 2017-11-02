@@ -1,10 +1,38 @@
 body {
-  padding-top: 5rem;
+  max-height: 100%;
+  overflow: hidden;
 }
+
+nav {
+  min-height: 60px;
+}
+
 .main {
-  padding: 3rem 1.5rem;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+
+.chart{
+    display: inline-table;
+    height: 100%;
+    width: 100%;
+}
+
+.info-section {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.add-chart-nav {
+  padding: 0;
   text-align: center;
 }
-.chart{
-    height: 500px;
+
+.mobile-add {
+  color: #5cb85c;
+  font-size: 2em;
+  line-height: 0.6em;
 }
