@@ -16,8 +16,8 @@ $( window ).resize(function() {
 
 function getTicker() {
   var ticker = prompt("What ticker are you interested in?", INVALID_TICKER);
-  while (ticker === INVALID_TICKER || !ticker) {
-    ticker = prompt("Try again, what ticker are you interested in?", INVALID_TICKER);
+  if (ticker === INVALID_TICKER || !ticker) {
+    return "";
   }
   return ticker;
 }
@@ -45,7 +45,9 @@ function closeChart(chartId) {
 $(".add-chart").on('click', function(){
   if (totalCharts < 8) {
     var ticker = getTicker();
-
+    if (ticker === "") {
+        return;   
+    }
     totalCharts++;
     var chartId = "chart_" + totalCharts;
     $("#main").append("<div class='chart' id='" + chartId + "'></div>");
