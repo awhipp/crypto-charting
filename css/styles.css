@@ -7,6 +7,20 @@ nav {
   min-height: 60px;
 }
 
+.navbar-brand {
+  background-image: url("../epic-charts-logo-white.png");
+  background-repeat: no-repeat;
+  background-repeat: no-repeat;
+  min-width: 200px;
+  min-height: 50px;
+}
+
+.navbar-brand > h1, .navbar-brand > h2 {
+  color: transparent;
+  height: 0;
+  width: 0;
+}
+
 .main {
   position: relative;
   text-align: center;
@@ -16,6 +30,7 @@ nav {
 .chart{
     display: inline-table;
     height: 100%;
+    position: relative;
     width: 100%;
 }
 
@@ -35,4 +50,40 @@ nav {
   color: #5cb85c;
   font-size: 2em;
   line-height: 0.6em;
+}
+
+.close_chart {
+    top: 7px;
+    height: 50px;
+    position: absolute;
+    right: 35px;
+    width: 50px;
+}
+
+.close_chart > button {
+    background: red;
+    background: rgba(255,0,0,1);
+    border: 1px solid white;
+    color: white;
+    cursor: pointer;
+    line-height: 1em;
+    padding: 0.25em 0.5em;
+}
+
+footer {
+  text-align: center;
+  min-height: 50px;
+  vertical-align: middle;
+  border-top: 1px solid #5cb85c;
+  color: #5cb85c;
+  padding-top: 10px;
+}
+
+footer > .developed {
+  color: #5cb85c;
+}
+@media (max-width: 992px){
+  footer > .developed-by {
+    display: none;
+  }
 }

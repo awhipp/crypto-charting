@@ -3,7 +3,7 @@ var totalCharts = 0;
 var INVALID_TICKER = "";
 
 function setMainHeight() {
-    $("#main").css("height", window.innerHeight - 60 + "px");
+    $("#main").css("height", window.innerHeight - 110 + "px");
 }
 
 $(function() {
@@ -20,6 +20,26 @@ function getTicker() {
     ticker = prompt("Try again, what ticker are you interested in?", INVALID_TICKER);
   }
   return ticker;
+}
+
+function closeChart(chartId) {
+
+  if (totalCharts === 1) {
+    reset();
+  } else {
+    console.log("Removing: #" + chartId);
+    $("#" + chartId).remove();
+
+    var charts = $(".chart");
+    for (var i = 0; i < charts.length; i++) {
+      chartId = "chart_" + (i+1);
+      charts[i].id = chartId;
+      $(charts[i]).find(".close_chart")[0].children[0].setAttribute("onclick", 'closeChart("' + chartId + '")');
+    }
+    totalCharts--;
+
+    setChartDimensions();
+  }
 }
 
 $(".add-chart").on('click', function(){
@@ -44,6 +64,8 @@ $(".add-chart").on('click', function(){
       "allow_symbol_change": true,
       "hideideas": true
     });
+
+    $("#" + chartId).append("<div class='close_chart'><button onclick='closeChart(\"" + chartId + "\")'>&times;</button></div>");
 
     setChartDimensions();
 
