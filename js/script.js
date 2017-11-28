@@ -3,11 +3,14 @@ var totalCharts = 0;
 var INVALID_TICKER = "";
 
 function setMainHeight() {
-    $("#main").css("height", window.innerHeight - 110 + "px");
+    $("#main").css("height", window.innerHeight + "px");
 }
 
 $(function() {
   setMainHeight();
+  addChart("BTCUSD", "5");
+  addChart("BTCUSD", "15");
+  addChart("BTCUSD", "60");
 });
 
 $( window ).resize(function() {
@@ -42,36 +45,44 @@ function closeChart(chartId) {
   }
 }
 
+function addChart(ticker, interval) {
+  totalCharts++;
+  var chartId = "chart_" + totalCharts;
+  $("#main").append("<div class='chart' id='" + chartId + "'></div>");
+  new TradingView.widget({
+    "container_id": chartId,
+    "autosize": true,
+    "symbol": ticker,
+    "interval": interval,
+    "timezone": "America/New_York",
+    "theme": "Light",
+    "style": "1",
+    "locale": "en",
+    "toolbar_bg": "#f1f3f6",
+    "enable_publishing": false,
+    "hide_side_toolbar": false,
+    "allow_symbol_change": true,
+    "hideideas": true,
+    "studies": [
+      "VWAP@tv-basicstudies"
+    ]
+  });
+
+  // $("#" + chartId).append("<div class='close_chart'><button onclick='closeChart(\"" + chartId + "\")'>&times;</button></div>");
+
+  setChartDimensions();
+
+  $("#info-section").hide();
+}
+
 $(".add-chart").on('click', function(){
   if (totalCharts < 8) {
     var ticker = getTicker();
     if (ticker === "") {
-        return;   
+        return;
     }
-    totalCharts++;
-    var chartId = "chart_" + totalCharts;
-    $("#main").append("<div class='chart' id='" + chartId + "'></div>");
-    new TradingView.widget({
-      "container_id": chartId,
-      "autosize": true,
-      "symbol": ticker,
-      "interval": "D",
-      "timezone": "Etc/UTC",
-      "theme": "Dark",
-      "style": "1",
-      "locale": "en",
-      "toolbar_bg": "#f1f3f6",
-      "enable_publishing": false,
-      "hide_side_toolbar": false,
-      "allow_symbol_change": true,
-      "hideideas": true
-    });
 
-    $("#" + chartId).append("<div class='close_chart'><button onclick='closeChart(\"" + chartId + "\")'>&times;</button></div>");
-
-    setChartDimensions();
-
-    $("#info-section").hide();
+    addChart(ticker, "D");
   } else {
     window.alert("You cannot add any more charts.");
   }
