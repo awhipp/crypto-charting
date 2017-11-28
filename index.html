@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="A quick view into the intraday bitcoin chart.">
+    <meta name="description" content="A quick intraday chart view for BTC ETH and LTC.">
     <meta name="author" content="Venture Focused Consulting">
     <link rel="icon" href="favicon.ico">
 
-    <title>BTCUSD Charts | Intraday Bitcoin Charts</title>
+    <title>Quick Cryptocurrency Charts | For Intraday Crypto Traders</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -17,28 +17,38 @@
   </head>
 
   <body>
-    <!-- <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="add-chart mobile-add">&plus;</span>
-      </button>
-      <a class="navbar-brand" href="#"><h1>Epic Trading Charts</h1><h2>Custom Financial Charting</h2></a>
 
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="javascript:reset()">&times; Reset All</a>
-          </li>
-        </ul>
-        <ul class="my-2 my-lg-0 add-chart-nav">
-          <button class="btn btn-outline-success my-2 my-sm-0 add-chart">&plus; Add a Chart</button>
-        </ul>
-      </div>
-    </nav> -->
+    <div id="chart-selector" class="header-section">
+      <span id="tradingview-copyright"></span>
+      <script src="https://s3.tradingview.com/external-embedding/embed-widget-tickers.js">{
+        "symbols": [
+          {
+            "description": "BTC/USD",
+            "proName": "COINBASE:BTCUSD"
+          },
+          {
+            "description": "ETH/USD",
+            "proName": "COINBASE:ETHUSD"
+          },
+          {
+            "description": "LTC/USD",
+            "proName": "COINBASE:LTCUSD"
+          }
+        ],
+        "locale": "en"
+      }</script>
+
+      <button class="hidden-button btc-button" onclick="addCharts('COINBASE:BTCUSD');"></button>
+      <button class="hidden-button eth-button" onclick="addCharts('COINBASE:ETHUSD');"></button>
+      <button class="hidden-button ltc-button" onclick="addCharts('COINBASE:LTCUSD');"></button>
+    </div>
 
     <div id="main" class="main">
         <div id="info-section" class="info-section">
-              <h1>Lets Get Started</h1>
-              <button class="btn btn-outline-success my-2 my-sm-0 add-chart" type="submit"><b>Add a Chart</b></button>
+              <h1>Select a Currency</h1>
+              <button class="btn btn-secondary my-2 my-sm-0" onclick="addCharts('COINBASE:BTCUSD');"><b>BTC/USD</b></button>
+              <button class="btn btn-secondary my-2 my-sm-0" onclick="addCharts('COINBASE:ETHUSD');"><b>ETH/USD</b></button>
+              <button class="btn btn-secondary my-2 my-sm-0" onclick="addCharts('COINBASE:LTCUSD');"><b>LTC/USD</b></button>
         </div>
     </div>
 

@@ -7,24 +7,46 @@ nav {
   min-height: 60px;
 }
 
-.navbar-brand {
-  background-image: url("../epic-charts-logo-white.png");
-  background-repeat: no-repeat;
-  background-repeat: no-repeat;
-  min-width: 200px;
-  min-height: 30px;
+.btn {
+  cursor: pointer;
 }
 
-.navbar-brand > h1, .navbar-brand > h2 {
-  color: transparent;
-  height: 0;
-  width: 0;
+.header-section {
+  display: none;
+  width: 100%;
+  margin-bottom: -31px;
+}
+
+.hidden-button {
+  position: absolute;
+  top: 0;
+  width: 33.3%;
+  height: 104px;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.hidden-button:hover {
+  opacity: 0.5;
+}
+
+.btc-button {
+  left: 0;
+}
+
+.eth-button {
+  left: 33.3%;
+}
+
+.ltc-button {
+  left: 66.6%;
 }
 
 .main {
   position: relative;
   text-align: center;
   width: 100%;
+  background: white;
 }
 
 .chart{

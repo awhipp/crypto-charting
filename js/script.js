@@ -1,16 +1,22 @@
 var totalCharts = 0;
+var shownDialogue = false;
 
 var INVALID_TICKER = "";
 
 function setMainHeight() {
-    $("#main").css("height", window.innerHeight + "px");
+    $("#main").css("height", window.innerHeight - parseInt($("#chart-selector > div").css("height").replace("px",""))+31 + "px");
+    if(window.innerWidth < 604 && !shownDialogue) {
+      shownDialogue = true;
+      window.alert("Best if viewed on a desktop or laptop screen.")
+    }
 }
 
 $(function() {
-  setMainHeight();
+  $(".header-section").css("display", "block");
   addChart("COINBASE:BTCUSD", "5");
   addChart("COINBASE:BTCUSD", "15");
   addChart("COINBASE:BTCUSD", "60");
+  setMainHeight();
 });
 
 $( window ).resize(function() {
@@ -26,7 +32,6 @@ function getTicker() {
 }
 
 function closeChart(chartId) {
-
   if (totalCharts === 1) {
     reset();
   } else {
@@ -45,6 +50,14 @@ function closeChart(chartId) {
   }
 }
 
+function addCharts(ticker) {
+  $(".header-section").css("display", "block");
+  reset();
+  addChart(ticker, "5");
+  addChart(ticker, "15");
+  addChart(ticker, "60");
+}
+
 function addChart(ticker, interval) {
   totalCharts++;
   var chartId = "chart_" + totalCharts;
@@ -61,10 +74,11 @@ function addChart(ticker, interval) {
     "toolbar_bg": "#f1f3f6",
     "enable_publishing": false,
     "hide_side_toolbar": false,
-    "allow_symbol_change": true,
+    "allow_symbol_change": false,
     "hideideas": true,
     "studies": [
-      "VWAP@tv-basicstudies"
+      "VWAP@tv-basicstudies",
+      "BB@tv-basicstudies"
     ]
   });
 
