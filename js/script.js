@@ -63,6 +63,7 @@ function addChart(ticker, interval) {
   var chartId = "chart_" + totalCharts;
   $("#main").append("<div class='chart' id='" + chartId + "'></div>");
     new TradingView.widget({
+      "container_id": chartId,
       "autosize": true,
       "symbol": ticker,
       "interval": interval,
