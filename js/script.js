@@ -8,9 +8,9 @@ function setMainHeight() {
 
 $(function() {
   setMainHeight();
-  addChart("BTCUSD", "5");
-  addChart("BTCUSD", "15");
-  addChart("BTCUSD", "60");
+  addChart("COINBASE:BTCUSD", "5");
+  addChart("COINBASE:BTCUSD", "15");
+  addChart("COINBASE:BTCUSD", "60");
 });
 
 $( window ).resize(function() {
