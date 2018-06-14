@@ -7,7 +7,7 @@
     <meta name="author" content="Venture Focused Consulting">
     <link rel="icon" href="favicon.ico">
 
-    <title>Quick Cryptocurrency Charts | For Intraday Crypto Traders</title>
+    <title>Currency Charts | For Intraday Currency Traders</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -23,38 +23,34 @@
       <script src="https://s3.tradingview.com/external-embedding/embed-widget-tickers.js">{
         "symbols": [
           {
-            "description": "BTC/USD",
-            "proName": "COINBASE:BTCUSD"
+            "description": "USD/TRY",
+            "proName": "OANDA:USDTRY"
           },
           {
-            "description": "ETH/USD",
-            "proName": "COINBASE:ETHUSD"
+            "description": "EUR/TRY",
+            "proName": "OANDA:EURTRY"
           },
           {
-            "description": "LTC/USD",
-            "proName": "COINBASE:LTCUSD"
+            "description": "TRY/JPY",
+            "proName": "OANDA:TRYJPY"
           }
         ],
         "locale": "en"
       }</script>
 
-      <button class="hidden-button btc-button" onclick="addCharts('COINBASE:BTCUSD');"></button>
-      <button class="hidden-button eth-button" onclick="addCharts('COINBASE:ETHUSD');"></button>
-      <button class="hidden-button ltc-button" onclick="addCharts('COINBASE:LTCUSD');"></button>
+      <button class="hidden-button btc-button" onclick="addCharts('OANDA:USDTRY');"></button>
+      <button class="hidden-button eth-button" onclick="addCharts('OANDA:EURTRY');"></button>
+      <button class="hidden-button ltc-button" onclick="addCharts('OANDA:TRYJPY');"></button>
     </div>
 
     <div id="main" class="main">
         <div id="info-section" class="info-section">
-              <h1>Select a Currency</h1>
-              <button class="btn btn-secondary my-2 my-sm-0" onclick="addCharts('COINBASE:BTCUSD');"><b>BTC/USD</b></button>
-              <button class="btn btn-secondary my-2 my-sm-0" onclick="addCharts('COINBASE:ETHUSD');"><b>ETH/USD</b></button>
-              <button class="btn btn-secondary my-2 my-sm-0" onclick="addCharts('COINBASE:LTCUSD');"><b>LTC/USD</b></button>
+              <h1>Select a Cross</h1>
+              <button class="btn btn-secondary my-2 my-sm-0" onclick="addCharts('OANDA:USDTRY');"><b>USD/TRY</b></button>
+              <button class="btn btn-secondary my-2 my-sm-0" onclick="addCharts('OANDA:EURTRY');"><b>EUR/TRY</b></button>
+              <button class="btn btn-secondary my-2 my-sm-0" onclick="addCharts('OANDA:TRYJPY');"><b>TRY/JPY</b></button>
         </div>
     </div>
-
-    <!-- <footer>
-      ©2017&nbsp;Epic&nbsp;Charts. <span class="developed-by">Developed&nbsp;by&nbsp;<a href="https://venturefocused.com" class="developed">Venture&nbsp;Focused&nbsp;Consulting</a>.</span>
-    </footer> -->
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

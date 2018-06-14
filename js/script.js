@@ -13,9 +13,10 @@ function setMainHeight() {
 
 $(function() {
   $(".header-section").css("display", "block");
-  addChart("COINBASE:BTCUSD", "5");
-  addChart("COINBASE:BTCUSD", "15");
-  addChart("COINBASE:BTCUSD", "60");
+  addChart("OANDA:USDTRY", "15");
+  addChart("OANDA:USDTRY", "60");
+  addChart("OANDA:USDTRY", "1D");
+  addChart("OANDA:USDTRY", "1W");
   setMainHeight();
 });
 
@@ -53,34 +54,35 @@ function closeChart(chartId) {
 function addCharts(ticker) {
   $(".header-section").css("display", "block");
   reset();
-  addChart(ticker, "5");
   addChart(ticker, "15");
   addChart(ticker, "60");
+  addChart(ticker, "1D");
+  addChart(ticker, "1W");
 }
 
 function addChart(ticker, interval) {
   totalCharts++;
   var chartId = "chart_" + totalCharts;
   $("#main").append("<div class='chart' id='" + chartId + "'></div>");
-    new TradingView.widget({
-      "container_id": chartId,
-      "autosize": true,
-      "symbol": ticker,
-      "interval": interval,
-      "timezone": "America/New_York",
-      "theme": "Light",
-      "style": "1",
-      "locale": "en",
-      "toolbar_bg": "#f1f3f6",
-      "enable_publishing": false,
-      "withdateranges": true,
-      "hide_side_toolbar": false,
-      "hideideas": true,
-      "studies": [
-        "BB@tv-basicstudies",
-        "VWAP@tv-basicstudies"
-      ]
-    });
+
+  new TradingView.widget({
+    "container_id": chartId,
+    "autosize": true,
+    "symbol": ticker,
+    "interval": interval,
+    "timezone": "America/New_York",
+    "theme": "Dark",
+    "style": "8",
+    "locale": "en",
+    "toolbar_bg": "#f1f3f6",
+    "enable_publishing": false,
+    "withdateranges": true,
+    "hide_side_toolbar": false,
+    "hideideas": true,
+    "studies": [
+      "PivotPointsHighLow@tv-basicstudies"
+    ]
+  });
 
   // $("#" + chartId).append("<div class='close_chart'><button onclick='closeChart(\"" + chartId + "\")'>&times;</button></div>");
 
