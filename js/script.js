@@ -56,8 +56,8 @@ function addCharts(ticker) {
   reset();
   addChart(ticker, "15");
   addChart(ticker, "60");
+  addChart(ticker, "240");
   addChart(ticker, "1D");
-  addChart(ticker, "1W");
 }
 
 function addChart(ticker, interval) {
