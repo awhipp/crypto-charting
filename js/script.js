@@ -13,10 +13,10 @@ function setMainHeight() {
 
 $(function() {
   $(".header-section").css("display", "block");
-  addChart("OANDA:USDTRY", "15");
-  addChart("OANDA:USDTRY", "60");
-  addChart("OANDA:USDTRY", "1D");
-  addChart("OANDA:USDTRY", "1W");
+  addChart("OANDA:EURUSD", "15");
+  addChart("OANDA:EURUSD", "60");
+  addChart("OANDA:EURUSD", "240");
+  addChart("OANDA:EURUSD", "1D");
   setMainHeight();
 });
 
