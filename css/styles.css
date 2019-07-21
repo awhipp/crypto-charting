@@ -12,16 +12,29 @@ nav {
 }
 
 .header-section {
-  display: none;
   width: 100%;
-  margin-bottom: -31px;
+  height: 72px;
+  margin-bottom: 0;
 }
 
-.hidden-button {
+.header-section iframe {
+    min-height: 72px;
+}
+
+.header-section > div {
+  width: 100%;
+  display: inline;
   position: absolute;
   top: 0;
-  width: 33.3%;
-  height: 104px;
+  left: 0; 
+}
+
+.hidden-button {    
+  position: relative;
+  display: inline-block;
+  top: 0;
+  width: 14%;
+  height: 72px;
   opacity: 0;
   cursor: pointer;
 }
